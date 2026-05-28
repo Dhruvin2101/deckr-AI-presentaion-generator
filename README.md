@@ -133,8 +133,12 @@ npx prisma db push
 ```
 
 ---
+## 8. Run Inngest
+```bash 
+npx inngest-cli@latest dev
+```
 
-## 6. Start Development Server
+## 7. Start Development Server
 
 ```bash
 npm run dev
