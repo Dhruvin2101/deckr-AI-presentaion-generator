@@ -105,7 +105,19 @@ DATABASE_URL=
 BETTER_AUTH_SECRET=
 BETTER_AUTH_URL=http://localhost:3000
 
-GEMINI_API_KEY=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+INNGEST_DEV=1
+
+GOOGLE_GENERATIVE_AI_API_KEY
+
+IMAGEKIT_PUBLIC_KEY=
+IMAGEKIT_PRIVATE_KEY=
+IMAGEKIT_BASE_URL=
 ```
 
 ---
@@ -139,29 +151,119 @@ http://localhost:3000
 # 🧩 Project Structure
 
 ```bash
-src/
+```txt
+deckr/
 │
-├── components/
-|   ├── auth/
-│   ├── ui/
-│   └── shared/
+├── prisma/
+│   ├── schema.prisma
+│   └── migrations/
 │
-├── features/
-│   └── presentation/
-│       ├── actions/
-│       ├── components/
-│       ├── constant/
-│       ├── hooks/
-│       ├── types/
-│       └── utils/
+├── public/
+│   ├── Deckr-logo.png
+│   ├── manifest.json
+│   └── robots.txt
 │
-├── routes/├── ui/
+├── src/
+│   │
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── ThemeToggle.tsx
+│   │   │
+│   │   ├── auth/
+│   │   │   └── login-form.tsx
+│   │   │
+│   │   └── ui/
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── dialog.tsx
+│   │       ├── input.tsx
+│   │       ├── textarea.tsx
+│   │       ├── select.tsx
+│   │       ├── tabs.tsx
+│   │       └── ...
+│   │
+│   ├── features/
+│   │   └── presentation/
+│   │       ├── actions/
+│   │       │   ├── presentation-mutation.ts
+│   │       │   └── presentation-query.ts
+│   │       │
+│   │       ├── components/
+│   │       │   ├── generation-status.tsx
+│   │       │   ├── presentation-card.tsx
+│   │       │   ├── slide-card.tsx
+│   │       │   ├── slide-preview.tsx
+│   │       │   └── slideshow-modal.tsx
+│   │       │
+│   │       ├── constants/
+│   │       │   ├── presentation-options.ts
+│   │       │   └── presentation-template.ts
+│   │       │
+│   │       ├── hooks/
+│   │       │   ├── query-keys.ts
+│   │       │   ├── useFullscreen.ts
+│   │       │   └── usePresentation-detail.ts
+│   │       │
+│   │       ├── types/
+│   │       │   ├── presentation.types.ts
+│   │       │   └── schema.ts
+│   │       │
+│   │       └── utils/
+│   │           └── index.ts
+│   │
+│   ├── generated/
+│   │   └── prisma/
+│   │
+│   ├── hooks/
+│   │   └── use-mobile.ts
+│   │
+│   ├── integrations/
+│   │   ├── inngest/
+│   │   │   ├── client.ts
+│   │   │   └── functions.ts
+│   │   │
+│   │   └── tanstack-query/
+│   │       ├── devtools.tsx
+│   │       └── root-provider.tsx
+│   │
+│   ├── lib/
+│   │   ├── auth.ts
+│   │   ├── auth-client.ts
+│   │   ├── auth.functions.ts
+│   │   ├── db.ts
+│   │   └── utils.ts
+│   │
+│   ├── middleware/
+│   │   └── auth.ts
+│   │
+│   ├── providers/
+│   │   └── theme-provider.tsx
+│   │
+│   ├── routes/
+│   │   ├── index.tsx
+│   │   ├── presentation.$presentationId.tsx
+│   │   ├── __root.tsx
+│   │   │
+│   │   ├── api/
+│   │   │   ├── inngest.ts
+│   │   │   └── auth/
+│   │   │       └── $.ts
+│   │   │
+│   │   └── _auth/
+│   │       ├── login.tsx
+│   │       └── route.tsx
+│   │
+│   ├── router.tsx
+│   ├── routeTree.gen.ts
+│   └── styles.css
 │
-├── lib/
-│
-├── middleware/
-│
-└── generated/
+├── .env
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
 ```
 
 ---
