@@ -1,204 +1,349 @@
-Welcome to your new TanStack Start app! 
+````md
+# 🚀 Deckr AI
 
-# Getting Started
+### AI-Powered Presentation Generator
 
-To run this application:
+Deckr AI is a modern full-stack AI presentation generation platform that transforms prompts into visually stunning presentations using AI.
+
+Built with the modern TanStack ecosystem, Deckr allows users to create, manage, edit, regenerate, and present beautiful AI-generated slide decks with a premium SaaS-inspired experience.
+
+---
+
+# ✨ Features
+
+- 🎨 AI-generated presentations from prompts
+- 🧠 Smart slide generation with customizable styles & tones
+- 🖼️ AI-powered image prompt generation for slides
+- 📑 Dynamic slide preview system
+- 🎞️ Full slideshow mode
+- 🌙 Dark / Light / System theme support
+- ⚡ Modern glassmorphism UI
+- 🔐 Authentication system
+- 💾 Persistent database storage
+- 🔄 Regenerate presentations instantly
+- 🗑️ Delete & manage presentations
+- 📱 Fully responsive design
+- 🚀 Built with the modern TanStack ecosystem
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+- React
+- TypeScript
+- TanStack Start
+- TanStack Router
+- TanStack Query
+- Tailwind CSS
+- Shadcn UI
+- Lucide React
+
+## Backend
+- TanStack Server Functions
+- Prisma ORM
+- PostgreSQL
+
+## Authentication
+- Better Auth
+
+## AI Integration
+- Gemini API 
+
+---
+
+# 📸 Screenshots
+
+## Home Page
+- Prompt input system
+- Presentation generation controls
+- Templates section
+- Previously generated presentations
+
+## Presentation Viewer
+- Live slide preview
+- Slideshow mode
+- Regeneration workflow
+- Edit presentation settings
+- Fullscreen support
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/your-username/deckr-ai.git
+````
+
+---
+
+## 2. Navigate to Project
+
+```bash
+cd deckr-ai
+```
+
+---
+
+## 3. Install Dependencies
 
 ```bash
 npm install
+```
+
+---
+
+## 4. Setup Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+DATABASE_URL=
+
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+
+GEMINI_API_KEY=
+```
+
+---
+
+## 5. Setup Database
+
+```bash
+npx prisma generate
+```
+
+```bash
+npx prisma db push
+```
+
+---
+
+## 6. Start Development Server
+
+```bash
 npm run dev
 ```
 
-# Building For Production
+Application will run at:
 
-To build this application for production:
+```txt
+http://localhost:3000
+```
+
+---
+
+# 🧩 Project Structure
+
+```bash
+src/
+│
+├── components/
+|   ├── auth/
+│   ├── ui/
+│   └── shared/
+│
+├── features/
+│   └── presentation/
+│       ├── actions/
+│       ├── components/
+│       ├── constant/
+│       ├── hooks/
+│       ├── types/
+│       └── utils/
+│
+├── routes/├── ui/
+│
+├── lib/
+│
+├── middleware/
+│
+└── generated/
+```
+
+---
+
+# 🧠 How Deckr Works
+
+1. User enters a prompt/topic
+2. User selects:
+
+   * Slide count
+   * Style
+   * Tone
+   * Layout
+3. AI generates structured presentation data
+4. Slides are stored in PostgreSQL
+5. Presentation preview is rendered dynamically
+6. Users can:
+
+   * Edit
+   * Regenerate
+   * Delete
+   * Present slides
+
+---
+
+# 🎨 Presentation Customization
+
+Deckr supports multiple presentation modes.
+
+## Styles
+
+* Minimal
+* Modern
+* Corporate
+* Creative
+
+## Tones
+
+* Formal
+* Professional
+* Casual
+* Educational
+
+## Layouts
+
+* Balanced
+* Visual-heavy
+* Text-focused
+
+---
+
+# 🌗 Theme System
+
+Deckr includes:
+
+* Light mode
+* Dark mode
+* System theme detection
+
+Theme preferences are stored using localStorage.
+
+---
+
+# 🔒 Authentication
+
+Authentication powered by Better Auth.
+
+Features:
+
+* Secure login/signup
+* Session management
+* Protected routes
+* User-specific presentations
+
+---
+
+# 🗄️ Database Models
+
+## Presentation
+
+* Title
+* Prompt
+* Style
+* Tone
+* Layout
+* Slide count
+* Status
+
+## Slide
+
+* Title
+* Content
+* Notes
+* Image prompt
+* Order
+
+---
+
+# 🚀 Future Improvements
+
+* Export to PowerPoint/PDF
+* AI voice narration
+* Collaborative editing
+* Presentation sharing
+* Real-time generation updates
+* Multiple presentation themes
+* Custom branding support
+* Drag-and-drop slide editing
+* AI animation suggestions
+
+---
+
+# 🧪 Scripts
+
+## Run Development Server
+
+```bash
+npm run dev
+```
+
+## Build Production
 
 ```bash
 npm run build
 ```
 
-## Testing
-
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+## Start Production
 
 ```bash
-npm run test
+npm run start
 ```
 
-## Styling
-
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-### Removing Tailwind CSS
-
-If you prefer not to use Tailwind CSS:
-
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `npm install @tailwindcss/vite tailwindcss -D`
-
-## Linting & Formatting
-
-
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
+## Prisma Generate
 
 ```bash
-npm run lint
-npm run format
-npm run check
+npx prisma generate
 ```
 
+## Prisma Push
 
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
+```bash
+npx prisma db push
 ```
 
-Then anywhere in your JSX you can use it like so:
+---
 
-```tsx
-<Link to="/about">About</Link>
+# 💡 Key Highlights
+
+* Full-stack AI SaaS application
+* Production-ready architecture
+* Modern TanStack ecosystem
+* Advanced React patterns
+* Real-world database integration
+* Premium UI/UX implementation
+* Scalable project structure
+
+---
+
+# 👨‍💻 Author
+
+## Dhruvin Patel
+
+Full Stack Developer passionate about:
+
+* AI-powered applications
+* Modern frontend engineering
+* SaaS product development
+* UI/UX systems
+* Scalable web architecture
+
+---
+
+
+# ⭐ Support
+
+If you like this project, consider giving it a star ⭐ on GitHub.
+
+---
+
+# 🔥 Deckr AI
+
+### “Turn ideas into beautiful presentations instantly.”
+
 ```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
 ```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
