@@ -40,7 +40,7 @@ export const generatePresentation = inngest.createFunction(
     triggers: [{ event: 'presentation/generate' }],
   },
   async ({ event, step }) => {
-    const { presentationId } = event.data as { presentsionId: string }
+    const { presentationId } = event.data as { presentationId: string }
 
     const presentation = await step.run('fetch-presentation', async () => {
       const p = await prisma.presentation.findUnique({
