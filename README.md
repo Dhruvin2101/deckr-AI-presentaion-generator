@@ -30,6 +30,7 @@ Built with the modern TanStack ecosystem, Deckr allows users to create, manage, 
 # 🛠️ Tech Stack
 
 ## Frontend
+
 - React
 - TypeScript
 - TanStack Start
@@ -40,27 +41,32 @@ Built with the modern TanStack ecosystem, Deckr allows users to create, manage, 
 - Lucide React
 
 ## Backend
+
 - TanStack Server Functions
 - Prisma ORM
 - PostgreSQL
 
 ## Authentication
+
 - Better Auth
 
 ## AI Integration
-- Gemini API 
+
+- Gemini API
 
 ---
 
 # 📸 Screenshots
 
 ## Home Page
+
 - Prompt input system
 - Presentation generation controls
 - Templates section
 - Previously generated presentations
 
 ## Presentation Viewer
+
 - Live slide preview
 - Slideshow mode
 - Regeneration workflow
@@ -75,6 +81,7 @@ Built with the modern TanStack ecosystem, Deckr allows users to create, manage, 
 
 ```bash
 git clone https://github.com/your-username/deckr-ai.git
+```
 ````
 
 ---
@@ -133,8 +140,10 @@ npx prisma db push
 ```
 
 ---
+
 ## 8. Run Inngest
-```bash 
+
+```bash
 npx inngest-cli@latest dev
 ```
 
@@ -154,7 +163,7 @@ http://localhost:3000
 
 # 🧩 Project Structure
 
-```bash
+````bash
 ```txt
 deckr/
 │
@@ -266,9 +275,9 @@ deckr/
 ├── tsconfig.json
 ├── vite.config.ts
 └── README.md
-```
+````
 
-```
+````
 
 ---
 
@@ -386,7 +395,7 @@ Features:
 
 ```bash
 npm run dev
-```
+````
 
 ## Build Production
 
@@ -416,13 +425,13 @@ npx prisma db push
 
 # 💡 Key Highlights
 
-* Full-stack AI SaaS application
-* Production-ready architecture
-* Modern TanStack ecosystem
-* Advanced React patterns
-* Real-world database integration
-* Premium UI/UX implementation
-* Scalable project structure
+- Full-stack AI SaaS application
+- Production-ready architecture
+- Modern TanStack ecosystem
+- Advanced React patterns
+- Real-world database integration
+- Premium UI/UX implementation
+- Scalable project structure
 
 ---
 
@@ -432,14 +441,13 @@ npx prisma db push
 
 Full Stack Developer passionate about:
 
-* AI-powered applications
-* Modern frontend engineering
-* SaaS product development
-* UI/UX systems
-* Scalable web architecture
+- AI-powered applications
+- Modern frontend engineering
+- SaaS product development
+- UI/UX systems
+- Scalable web architecture
 
 ---
-
 
 # ⭐ Support
 
@@ -449,7 +457,33 @@ If you like this project, consider giving it a star ⭐ on GitHub.
 
 # 🔥 Deckr AI
 
-### “Turn ideas into beautiful presentations instantly.”
+```
+
+Turn ideas into beautiful presentations instantly.
 
 ```
+
+# To change the Image model
+
+```
+Option A: Pollinations.ai (easiest — drop-in replacement)
+Just hit an endpoint like:
+https://image.pollinations.ai/prompt/{encoded-prompt}
+No account, no key, no signup. Anonymous use is rate-limited (~1 request per 15 seconds), but for a presentation generator that's making a handful of images per generation, that's usually fine. Registering a free account (still no payment) raises the limit and removes the watermark.
+Replace your buildImageKitUrl function with:
+tsfunction buildImageUrl(prompt: string): string {
+  const sanitizedPrompt = prompt
+    .replace(/[^\w\s-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 200)
+
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(sanitizedPrompt)}?width=1280&height=720&nologo=true`
+}
+Then in functions.ts, change:
+tsimageUrl: buildImageKitUrl(slides.imagePrompt, `slide-${presentationId}-${index}`),
+to:
+tsimageUrl: buildImageUrl(slides.imagePrompt),
+No filename param needed since Pollinations generates on-the-fly from the URL itself rather than pre-storing named assets.
+
 ```
