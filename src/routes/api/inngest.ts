@@ -1,15 +1,14 @@
-import { inngest } from '#/integrations/inngest/client';
-import { generatePresentation } from '#/integrations/inngest/functions';
+import { inngest } from '#/integrations/inngest/client'
+import { generatePresentation } from '#/integrations/inngest/functions'
 import { createFileRoute } from '@tanstack/react-router'
-import { createServerFileRoute } from "@tanstack/react-start/server";
-import { serve } from "inngest/edge";
+import { serve } from 'inngest/edge'
 
 const handler = serve({
   client: inngest,
   functions: [generatePresentation],
-});
+})
 
-export const Route = createFileRoute("/api/inngest")({
+export const Route = createFileRoute('/api/inngest')({
   server: {
     handlers: {
       GET: async ({ request }) => handler(request),
@@ -17,4 +16,4 @@ export const Route = createFileRoute("/api/inngest")({
       PUT: async ({ request }) => handler(request),
     },
   },
-});
+})
